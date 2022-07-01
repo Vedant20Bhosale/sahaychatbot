@@ -82,14 +82,17 @@ slots:
   location_delivery:
     type: any
     influence_conversation: false
+  requested_slot:
+    type: unfeaturized
+    influence_conversation: false
 responses:
   utter_greet_user:
   - text: Hi , Welcome to this group I am rasaBot! Your friendly bot agent . How can I assist you today?
   utter_greet:
-  - text: Hey! what do you want to search for
+  - text: Hey! I'm Sahay a legal assistance chatbot!
   utter_cheer_up:
-  - text: 'Here is something to cheer you up:'
-    image: https://i.imgur.com/nGF1K8f.jpg
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
   utter_did_that_help:
   - text: Did that help you?
   utter_happy:
@@ -101,79 +104,79 @@ responses:
   utter_ask_grievance_type:
   - text: Is your grievance related to a good or a service?
   utter_ask_if_money_paid:
-  - text: Have you paid or promised to pay any sum of money in exchange of receiving such {grievance_type}?
-    buttons:
-    - title: if money paid is yes
-      payload: /affirm{{"if_money_paid":"yes"}}
-    - title: if money paid is no
-      payload: /deny{{"if_money_paid":"no"}}
+  - buttons:
+    - payload: /affirm{{"if_money_paid":"yes"}}
+      title: if money paid is yes
+    - payload: /deny{{"if_money_paid":"no"}}
+      title: if money paid is no
+    text: Have you paid or promised to pay any sum of money in exchange of receiving such {grievance_type}?
   utter_ask_money_details_form_amount_money_paid:
   - text: How much money have you paid?
   utter_ask_money_details_form_amount_paid_isfull:
-  - text: Have you paid the full amount?
-    buttons:
-    - title: amount paid is full is yes
-      payload: /affirm{{"amount_paid_isfull":"yes"}}
-    - title: amount paid is full is no
-      payload: /deny{{"amount_paid_isfull":"no"}}
+  - buttons:
+    - payload: /affirm{{"amount_paid_isfull":"yes"}}
+      title: amount paid is full is yes
+    - payload: /deny{{"amount_paid_isfull":"no"}}
+      title: amount paid is full is no
+    text: Have you paid the full amount?
   utter_ask_intentofreselling:
-  - text: Have you obtained such {grievance_type} with the objective of reselling such {grievance_type} for any commercial purpose?
-    buttons:
-    - title: intent of reselling is yes
-      payload: /affirm{{"intentofreselling":"yes"}}
-    - title: intent of reselling is no
-      payload: /deny{{"intentofreselling":"no"}}
+  - buttons:
+    - payload: /affirm{{"intentofreselling":"yes"}}
+      title: intent of reselling is yes
+    - payload: /deny{{"intentofreselling":"no"}}
+      title: intent of reselling is no
+    text: Have you obtained such {grievance_type} with the objective of reselling such {grievance_type} for any commercial purpose?
   utter_ask_if_fault:
-  - text: Do you think that there is any fault, imperfection or shortcoming in the quality, quantity, potency, purity or standard of the {grievance_type} that you have received?
-    buttons:
-    - title: if fault is yes
-      payload: /affirm{{"if_fault":"yes"}}
-    - title: if fault is no
-      payload: /deny{{"if_fault":"no"}}
+  - buttons:
+    - payload: /affirm{{"if_fault":"yes"}}
+      title: if fault is yes
+    - payload: /deny{{"if_fault":"no"}}
+      title: if fault is no
+    text: Do you think that there is any fault, imperfection or shortcoming in the quality, quantity, potency, purity or standard of the {grievance_type} that you have received?
   utter_ask_fault_details_form_if_fault_under_law:
-  - text: To the best of your knowledge, is such quality, quantity, potency, purity or standard required to be maintained under any law? (For example, expiry date for use as mentioned on the package) [We may ask in addition whether the lay person is actually aware of any such law]
-    buttons:
-    - title: if fault under law is yes
-      payload: /affirm{{"if_fault_under_law":"yes"}}
-    - title: if fault under law is no
-      payload: /deny{{"if_fault_under_law":"no"}}
+  - buttons:
+    - payload: /affirm{{"if_fault_under_law":"yes"}}
+      title: if fault under law is yes
+    - payload: /deny{{"if_fault_under_law":"no"}}
+      title: if fault under law is no
+    text: To the best of your knowledge, is such quality, quantity, potency, purity or standard required to be maintained under any law? (For example, expiry date for use as mentioned on the package) [We may ask in addition whether the lay person is actually aware of any such law]
   utter_ask_fault_details_form_if_fault_under_law_deal:
-  - text: Was such quality, quantity, potency, purity or standard promised by the person who sold you the {grievance_type}, either in an express or in an implied manner, and/or in any contract that you might have entered into with the seller?
-    buttons:
-    - title: if fault under deal is yes
-      payload: /affirm{{"if_fault_under_law_deal":"yes"}}
-    - title: if fault under deal is no
-      payload: /deny{{"if_fault_under_law_deal":"no"}}
+  - buttons:
+    - payload: /affirm{{"if_fault_under_law_deal":"yes"}}
+      title: if fault under deal is yes
+    - payload: /deny{{"if_fault_under_law_deal":"no"}}
+      title: if fault under deal is no
+    text: Was such quality, quantity, potency, purity or standard promised by the person who sold you the {grievance_type}, either in an express or in an implied manner, and/or in any contract that you might have entered into with the seller?
   utter_ask_fault_details_form_fault_identify_date:
   - text: Enter the date in dd/mm/yyyy format on which you identified this defect in {grievance_type} for the first time?
   utter_ask_if_complaint_filed:
-  - text: Did you file any complaint to any consumer forum already since then?
-    buttons:
-    - title: if complaint filed is yes
-      payload: /affirm{{"if_complaint_filed":"yes"}}
-    - title: if complaint filed is no
-      payload: /deny{{"if_complaint_filed":"no"}}
+  - buttons:
+    - payload: /affirm{{"if_complaint_filed":"yes"}}
+      title: if complaint filed is yes
+    - payload: /deny{{"if_complaint_filed":"no"}}
+      title: if complaint filed is no
+    text: Did you file any complaint to any consumer forum already since then?
   utter_ask_if_complaint_not_filed_reason:
-  - text: If the date is more than two years back, then what was the reason for not having filed any complaint before? Was it due to the action/misrepresentation of the seller of {grievance_type} provider, or of any other third party including lawyers?
-    buttons:
-    - title: if complaint not filed reason is yes
-      payload: /affirm{{"complaint_not_filed_reason":"yes"}}
-    - title: if complaint not filed reason is no
-      payload: /deny{{"complaint_not_filed_reason":"no"}}
+  - buttons:
+    - payload: /affirm{{"complaint_not_filed_reason":"yes"}}
+      title: if complaint not filed reason is yes
+    - payload: /deny{{"complaint_not_filed_reason":"no"}}
+      title: if complaint not filed reason is no
+    text: If the date is more than two years back, then what was the reason for not having filed any complaint before? Was it due to the action/misrepresentation of the seller of {grievance_type} provider, or of any other third party including lawyers?
   utter_ask_fault_details_form_defect_sample:
-  - text: Do you have any sample of the {grievance_type} left in your possession from which the defect can be ascertained? Can you retain and preserve the sample for subsequent analysis?
-    buttons:
-    - title: if availability of defect sample is yes
-      payload: /affirm{{"defect_sample":"yes"}}
-    - title: if availability of defect sample is no
-      payload: /deny{{"defect_sample":"no"}}
+  - buttons:
+    - payload: /affirm{{"defect_sample":"yes"}}
+      title: if availability of defect sample is yes
+    - payload: /deny{{"defect_sample":"no"}}
+      title: if availability of defect sample is no
+    text: Do you have any sample of the {grievance_type} left in your possession from which the defect can be ascertained? Can you retain and preserve the sample for subsequent analysis?
   utter_ask_fault_details_form_defect_sample_photo:
-  - text: If the defect is visible to the naked eye, then can you retain the {grievance_type}/obtain geo- tagged photographs of the {grievance_type} highlighting the defect?
-    buttons:
-    - title: if availability of defect sample photo is yes
-      payload: /affirm{{"defect_sample_photo":"yes"}}
-    - title: if availability of defect sample photo is no
-      payload: /deny{{"defect_sample_photo":"no"}}
+  - buttons:
+    - payload: /affirm{{"defect_sample_photo":"yes"}}
+      title: if availability of defect sample photo is yes
+    - payload: /deny{{"defect_sample_photo":"no"}}
+      title: if availability of defect sample photo is no
+    text: If the defect is visible to the naked eye, then can you retain the {grievance_type}/obtain geo- tagged photographs of the {grievance_type} highlighting the defect?
   utter_ask_location:
   - text: What are the respective locations of yourself, the seller of {grievance_type}, and the place at which the {grievance_type} had been performed/delivered to you in order?
   utter_end:
